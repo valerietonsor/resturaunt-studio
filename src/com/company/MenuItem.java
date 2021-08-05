@@ -1,16 +1,20 @@
 package com.company;
 
+import java.util.Objects;
+
 public class MenuItem {
+    private String name;
     private double price;
     private String description;
     private String category;
-    private Boolean newItem = false;
+    private Boolean isNewItem;
 
-    public MenuItem (String category, String description, Double price, Boolean newItem){
+    public MenuItem (String name, String category, String description, Double price){
+        this.name = name;
         this.category = category;
         this.description = description;
         this.price = price;
-        this.newItem = newItem;
+
     }
 
     public double getPrice() {
@@ -38,10 +42,33 @@ public class MenuItem {
     }
 
     public Boolean getNewItem() {
-        return newItem;
+        return isNewItem;
     }
 
-    public void setNewItem(Boolean newItem) {
-        this.newItem = newItem;
+    public void setIsNewItem(Boolean newItem) {
+        this.isNewItem = newItem;
+    }
+
+    @Override
+    public boolean equals(Object toBeCompared) {
+        if (this == toBeCompared) return true;
+        if (!(toBeCompared instanceof MenuItem)) return false;
+        MenuItem menuItem = (MenuItem) toBeCompared;
+        return Objects.equals(name, menuItem.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", category='" + category + '\'' +
+                '}';
     }
 }
