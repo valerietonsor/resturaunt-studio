@@ -23,7 +23,7 @@ public class Menu {
     }
 
     public void menuUpdated() {
-    lastUpdated = LocalDate.now();
+    this.lastUpdated = LocalDate.now();
     }
 
     public void addMenuItem(MenuItem newMenuItem){
@@ -40,10 +40,6 @@ public class Menu {
     public void removeMenuItem(MenuItem wantToDelete){
         menuItems.remove(wantToDelete);
         menuUpdated();
-    }
-
-    public void isItemNew (MenuItem menuItem){
-
     }
 
 

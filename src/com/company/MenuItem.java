@@ -1,19 +1,24 @@
 package com.company;
 
+import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Objects;
+import java.time.temporal.ChronoUnit;
 
 public class MenuItem {
     private String name;
     private double price;
     private String description;
     private String category;
+    private LocalDate date;
     private Boolean isNewItem;
 
-    public MenuItem (String name, String category, String description, Double price){
+    public MenuItem (String name, String category, String description, Double price, LocalDate date){
         this.name = name;
         this.category = category;
         this.description = description;
         this.price = price;
+        this.date = date;
 
     }
 
@@ -49,6 +54,16 @@ public class MenuItem {
         this.isNewItem = newItem;
     }
 
+    public void checkItemNew(){
+        long daysBetween = ChronoUnit.DAYS.between(date, LocalDate.now());
+        if (daysBetween > 30) {
+            isNewItem = false;
+        }
+            else{
+                isNewItem = true;
+            }
+    }
+
     @Override
     public boolean equals(Object toBeCompared) {
         if (this == toBeCompared) return true;
@@ -69,6 +84,7 @@ public class MenuItem {
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 ", category='" + category + '\'' +
+                ", isNewItem=" + isNewItem +
                 '}';
     }
 }
