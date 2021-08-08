@@ -1,7 +1,6 @@
 package com.company;
 
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.Objects;
 import java.time.temporal.ChronoUnit;
 
@@ -20,6 +19,14 @@ public class MenuItem {
         this.price = price;
         this.date = date;
 
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getPrice() {
@@ -46,7 +53,7 @@ public class MenuItem {
         this.category = category;
     }
 
-    public Boolean getNewItem() {
+    public Boolean getIsNewItem() {
         return isNewItem;
     }
 

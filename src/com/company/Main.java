@@ -24,10 +24,12 @@ public class Main {
       ourMenu.addMenuItem(strawberryPie);
 
 
-
-        System.out.println("Menu last updated on" + ourMenu.getLastUpdated());
-        brownies.checkItemNew();
         System.out.println(ourMenu);
+        System.out.println("Menu last updated on " + ourMenu.getLastUpdated());
+
+
+
+
 
     }
 }
